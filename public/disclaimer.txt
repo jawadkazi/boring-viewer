@@ -1,0 +1,90 @@
+===============================================================================
+                         BORING_VIEWER - PROJECT DISCLAIMER
+===============================================================================
+Version: 1.0.0
+Last Updated: 2026-01-19
+Project URL: github.com/jawadkazi/boring-viewer
+-------------------------------------------------------------------------------
+
+1. NON-AFFILIATION AND INDEPENDENT STATUS
+-----------------------------------------
+BORING_VIEWER (the "Software") is an independent, open-source community
+project. It is NOT affiliated, associated, authorized, endorsed by, or in any
+way officially connected with The Boring Company, TBC, Prufrock, or any of
+their subsidiaries or affiliates.
+
+The official website for The Boring Company can be found at
+https://www.boringcompany.com.
+
+The name "The Boring Company" as well as related names, marks, emblems, and
+images are registered trademarks of their respective owners. Use of them does
+not imply any affiliation with or endorsement by them.
+
+
+2. NO PROFESSIONAL ADVICE / "AS-IS" BASIS
+-----------------------------------------
+The data, visualizations, and maps provided by BORING_VIEWER are for
+informational and community-engagement purposes ONLY.
+
+- GEOTECHNICAL DATA: Any soil, rock, or water-table data visualized in this
+  tool is speculative or user-submitted. It should NOT be used for actual
+  civil engineering, architectural planning, or construction.
+- FEASIBILITY: A "valid" route in the Software does not imply a feasible
+  route in the physical world.
+- ACCURACY: Map coordinates and distance calculations are approximations
+  generated via third-party libraries (Leaflet/OpenStreetMap) and may vary
+  from precise global positioning data.
+
+
+3. USER-SUBMITTED CONTENT
+-------------------------
+BORING_VIEWER serves as a hub for community proposals related to the
+"Tunnel Vision" challenge. The maintainers of this repository:
+- Do not verify the engineering validity of user submissions.
+- Are not responsible for the intellectual property rights of submitted
+  proposals. Users are responsible for ensuring they have the right to share
+  their data and that it does not violate any non-disclosure agreements (NDAs)
+  or local laws.
+
+
+4. LIMITATION OF LIABILITY
+--------------------------
+IN NO EVENT SHALL THE AUTHORS, CONTRIBUTORS, OR COPYRIGHT HOLDERS BE LIABLE
+FOR ANY CLAIM, DAMAGES, OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+TORT, OR OTHERWISE, ARISING FROM, OUT OF, OR IN CONNECTION WITH THE SOFTWARE
+OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+THIS INCLUDES, BUT IS NOT LIMITED TO:
+- DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES.
+- LOSS OF PROFITS OR DATA.
+- PHYSICAL INJURY OR PROPERTY DAMAGE ARISING FROM ATTEMPTS TO UTILIZE
+  SUBMISSIONS FOR ACTUAL CONSTRUCTION.
+
+
+5. EXTERNAL LINKS
+-----------------
+The Software contains links to external websites (e.g., The Boring Company,
+GitHub, OpenStreetMap). The maintainers of BORING_VIEWER have no control over
+the content, availability, or security of these external sites and do not
+warrant the information found therein.
+
+
+6. INDEMNIFICATION
+------------------
+By using BORING_VIEWER, you agree to indemnify and hold harmless the project
+maintainers and contributors from and against any and all claims, damages,
+costs, and expenses, including attorneys' fees, arising from or related to
+your use of the Software or any submission you provide to the community log.
+
+
+7. CONFLICTS WITH OFFICIAL TERMS
+--------------------------------
+If you are submitting a proposal to the official "Tunnel Vision" challenge
+hosted by The Boring Company, please refer to THEIR official terms and
+conditions. BORING_VIEWER is a visualization tool; it is NOT an official
+submission portal. Use of this tool does not guarantee entry or success
+in any competition.
+
+-------------------------------------------------------------------------------
+                          END OF DISCLAIMER DOCUMENT
+===============================================================================

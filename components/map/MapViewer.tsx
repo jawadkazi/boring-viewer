@@ -8,7 +8,7 @@ import {
 } from "react-leaflet";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
-import { useEffect, useMemo } from "react";
+import { useEffect } from "react";
 import { Route } from "@/types/route";
 
 const dotIcon = (color: string) =>
@@ -44,55 +44,74 @@ export default function MapViewer({
   activeRoute,
   resetTrigger,
   onRouteClick,
+  onReset,
 }: {
   routes: Route[];
   activeRoute: Route | null;
   resetTrigger: number;
   onRouteClick: (route: Route) => void;
+  onReset: () => void;
 }) {
   return (
-    <MapContainer
-      center={[38, -97]}
-      zoom={4}
-      minZoom={4}
-      maxBounds={[
-        [15, -135],
-        [55, -65],
-      ]}
-      maxBoundsViscosity={1.0}
-      zoomControl={false}
-      className="h-full w-full"
-    >
-      <TileLayer url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png" />
-
-      {routes.map((route) => (
-        <Marker
-          key={`dot-${route.id}`}
-          position={route.path[0] as L.LatLngExpression}
-          icon={dotIcon(route.color)}
-          eventHandlers={{ click: () => onRouteClick(route) }}
+    <div className="relative h-full w-full">
+      {/* MAP COMPONENT */}
+      <MapContainer
+        center={[38, -97]}
+        zoom={4}
+        minZoom={4}
+        maxBounds={[
+          [15, -135],
+          [55, -65],
+        ]}
+        maxBoundsViscosity={1.0}
+        zoomControl={false}
+        className="h-full w-full"
+      >
+        {/* CHANGED TO COLORFUL OPENSTREETMAP TILES */}
+        <TileLayer
+          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         />
-      ))}
 
-      {activeRoute && (
-        <>
-          <Polyline
-            positions={activeRoute.path as L.LatLngExpression[]}
-            pathOptions={{
-              color: activeRoute.color,
-              weight: 7,
-              lineCap: "round",
-              opacity: 0.9,
-              dashArray: "1, 12",
-            }}
-          />
+        {routes.map((route) => (
           <Marker
-            position={activeRoute.path[1] as L.LatLngExpression}
-            icon={dotIcon(activeRoute.color)}
+            key={`dot-${route.id}`}
+            position={route.path[0] as L.LatLngExpression}
+            icon={dotIcon(route.color)}
+            eventHandlers={{ click: () => onRouteClick(route) }}
           />
-        </>
-      )}
-      <MapController activeRoute={activeRoute} resetTrigger={resetTrigger} />
-    </MapContainer>
+        ))}
+
+        {activeRoute && (
+          <>
+            <Polyline
+              positions={activeRoute.path as L.LatLngExpression[]}
+              pathOptions={{
+                color: activeRoute.color,
+                weight: 7,
+                lineCap: "round",
+                opacity: 0.9,
+                dashArray: "1, 12",
+              }}
+            />
+            <Marker
+              position={activeRoute.path[1] as L.LatLngExpression}
+              icon={dotIcon(activeRoute.color)}
+            />
+          </>
+        )}
+        <MapController activeRoute={activeRoute} resetTrigger={resetTrigger} />
+      </MapContainer>
+
+      {/* FLOATING RESET BUTTON */}
+      <div className="absolute bottom-6 right-6 z-[1000] w-48">
+        <button
+          onClick={onReset}
+          className="w-full text-[11px] font-black uppercase bg-slate-900 text-white py-4 rounded-xl hover:bg-slate-800 transition-all tracking-widest shadow-2xl active:scale-95 border border-white/10"
+        >
+          Reset Map View
+        </button>
+      </div>
+    </div>
   );
 }

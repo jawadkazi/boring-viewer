@@ -2,7 +2,8 @@ import { Route } from "@/types/route";
 
 export const ROUTES: Route[] = [
   {
-    id: "v1",
+    id: "7b2a9e1c4f934e2b",
+    manageKey: "m-9921-x-secret1",
     name: "LVCC West Loop",
     proposer: "T. Tunneler",
     distance: "0.85 mi",
@@ -12,10 +13,14 @@ export const ROUTES: Route[] = [
       [36.131, -115.151],
       [36.135, -115.161],
     ],
-    color: "#ef4444",
+    color: "#e11d48",
+    tags: ["PASSENGER", "ACTIVE"],
+    description:
+      "Primary transit artery connecting the West Hall to the main LVCC campus. Utilizes high-occupancy AEVs to reduce surface congestion by 40%.",
   },
   {
-    id: "v2",
+    id: "f93e22a11c5b4e2b",
+    manageKey: "m-1102-k-private",
     name: "SpaceX Hawthorne",
     proposer: "E. Musk",
     distance: "0.92 mi",
@@ -25,10 +30,14 @@ export const ROUTES: Route[] = [
       [33.92, -118.327],
       [33.921, -118.342],
     ],
-    color: "#3b82f6",
+    color: "#e11d48",
+    tags: ["R&D", "TEST TUNNEL"],
+    description:
+      "Experimental proof-of-concept for the Prufrock boring machine. This segment served as the initial testbed for rapid-launch tunnel deployment.",
   },
   {
-    id: "v3",
+    id: "a8d16c5b9a2e4e2b",
+    manageKey: "m-5541-z-manager",
     name: "Giga Texas Utility",
     proposer: "A. Sterling",
     distance: "0.78 mi",
@@ -38,6 +47,9 @@ export const ROUTES: Route[] = [
       [30.222, -97.618],
       [30.231, -97.625],
     ],
-    color: "#10b981",
+    color: "#e11d48",
+    tags: ["UTILITY", "WATER"],
+    description:
+      "Subterranean infrastructure layer for high-capacity fluid transport and electrical busbars. Optimized for high-speed maintenance access via automated sleds.",
   },
 ];
