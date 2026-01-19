@@ -53,17 +53,100 @@ export default function AuditSidebar({
         </div>
 
         <div className="mt-6">
-          <p className="text-[10px] font-bold text-slate-400 uppercase tracking-tighter mb-1">
-            January 18, 2026
-          </p>
-          <h2 className="text-lg font-black text-slate-900 uppercase tracking-tight leading-tight">
-            The Tunnel Vision Challenge
-          </h2>
-          <p className="text-[12px] leading-relaxed text-slate-600 mt-2">
-            TBC invites you to submit your proposal for a tunnel project up to 1
-            mile in length. Prufrock is designed to construct
-            mega-infrastructure projects in weeks instead of years.
-          </p>
+          {/*<h2 className="text-lg font-black text-slate-900 uppercase tracking-tight leading-tight">
+            Description
+          </h2>*/}
+
+          <div className="text-[12px] leading-relaxed text-slate-600 mt-4 space-y-4">
+            <section>
+              <p>
+                The Boring Company (TBC) is looking for the next great
+                underground project—and they’re offering to build it for free.
+                TBC’s <span className="font-bold text-slate-800">Prufrock</span>{" "}
+                technology is ready to turn a 1-mile proposal into reality in
+                weeks.
+              </p>
+            </section>
+
+            <div className="h-px bg-slate-100 w-full my-4" />
+
+            <section>
+              <ul className="space-y-1 ml-1">
+                <li className="flex gap-2">
+                  <span className="text-rose-500 font-bold">•</span>
+                  <span>
+                    <span className="font-bold text-slate-800 tracking-tight">
+                      LENGTH:
+                    </span>{" "}
+                    Up to 1 mile.
+                  </span>
+                </li>
+                <li className="flex gap-2">
+                  <span className="text-rose-500 font-bold">•</span>
+                  <span>
+                    <span className="font-bold text-slate-800 tracking-tight">
+                      DEADLINE:
+                    </span>{" "}
+                    February 23, 2026.
+                  </span>
+                </li>
+              </ul>
+            </section>
+
+            <section>
+              <h3 className="text-[11px] font-black text-slate-400 uppercase tracking-widest mb-2">
+                🗿 Evaluation Criteria
+              </h3>
+              <ul className="space-y-2">
+                <li className="bg-slate-50 p-2 rounded-lg border-l-2 border-rose-500">
+                  <strong className="text-slate-900 uppercase text-[10px]">
+                    High Utility:
+                  </strong>{" "}
+                  Solve massive traffic or logistics bottlenecks.
+                </li>
+                <li className="bg-slate-50 p-2 rounded-lg border-l-2 border-slate-900">
+                  <strong className="text-slate-900 uppercase text-[10px]">
+                    Feasibility:
+                  </strong>{" "}
+                  Must be permit-ready and geologically sound.
+                </li>
+                <li className="bg-slate-50 p-2 rounded-lg border-l-2 border-slate-900">
+                  <strong className="text-slate-900 uppercase text-[10px]">
+                    Community:
+                  </strong>{" "}
+                  Support and enthusiasm from local stakeholders.
+                </li>
+              </ul>
+            </section>
+
+            <div className="h-px bg-slate-100 w-full my-4" />
+
+            <section>
+              <h3 className="text-xs font-black text-slate-900 uppercase tracking-wider mb-2 flex items-center gap-2">
+                How to use this tool?
+              </h3>
+              <p className="mb-2 italic text-slate-500">
+                Use this platform to organize your vision before official
+                submission:
+              </p>
+              <ul className="space-y-1">
+                <li className="flex items-start gap-2">
+                  <span className="text-rose-500">→</span>
+                  <span>
+                    <span className="font-bold">Draft:</span> Map your
+                    coordinates and data.
+                  </span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-rose-500">→</span>
+                  <span>
+                    <span className="font-bold">Collaborate:</span> Gather local
+                    feedback here.
+                  </span>
+                </li>
+              </ul>
+            </section>
+          </div>
         </div>
       </div>
 
@@ -153,12 +236,12 @@ export default function AuditSidebar({
         </button>
         <p className="mt-4 text-[9px] leading-relaxed text-slate-400 px-2 font-medium">
           <span className="text-rose-600 font-bold uppercase">Disclaimer:</span>{" "}
-          This is a community tool
+          This is a community tool and is
           <span className="font-bold">
             {" "}
             NOT affiliated with The Boring Company.
           </span>{" "}
-          To be official, email:
+          To be officially considered, email:
           <a
             href="mailto:tunnelvision@boringcompany.com"
             className="text-rose-500 underline ml-1"
