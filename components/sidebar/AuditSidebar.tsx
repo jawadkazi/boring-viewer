@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import { Route } from "@/types/route";
+import { deleteRoute } from "@/app/actions";
 
 interface AuditSidebarProps {
   routes: Route[];
@@ -124,14 +125,14 @@ export default function AuditSidebar({
                   {activeRoute.distance}
                 </p>
               </div>
-              <div className="p-4 bg-slate-50 border-2 border-slate-100 rounded-xl">
+              {/*<div className="p-4 bg-slate-50 border-2 border-slate-100 rounded-xl">
                 <p className="text-[10px] font-black text-slate-400 uppercase mb-1">
-                  Status
+                  Last Updated
                 </p>
-                <p className="text-xl font-mono font-black text-emerald-600 italic underline decoration-2">
-                  VERIFIED
+                <p className="text-xl font-mono font-black text-slate-900 decoration-2">
+                  Jan. 19, 2026
                 </p>
-              </div>
+              </div>*/}
             </div>
 
             <div className="space-y-4">
@@ -169,11 +170,21 @@ export default function AuditSidebar({
           <div className="p-8 border-t-4 border-slate-900 bg-slate-50 space-y-4">
             {isEditable ? (
               <div className="flex gap-3">
-                <button className="flex-1 py-3 bg-white border-2 border-slate-900 text-slate-900 font-black text-[10px] uppercase rounded-xl hover:bg-slate-900 hover:text-white transition-all">
+                {/*<button className="flex-1 py-3 bg-white border-2 border-slate-900 text-slate-900 font-black text-[10px] uppercase rounded-xl hover:bg-slate-900 hover:text-white transition-all">
                   Edit Proposal
-                </button>
-                <button className="flex-1 py-3 bg-rose-50 border-2 border-rose-200 text-rose-600 font-black text-[10px] uppercase rounded-xl hover:bg-rose-600 hover:text-white transition-all">
-                  Delete
+                </button>*/}
+                <button
+                  onClick={async () => {
+                    if (
+                      activeRoute?.manageKey &&
+                      confirm("Are you sure you want to delete this proposal?")
+                    ) {
+                      await deleteRoute(activeRoute.id, activeRoute.manageKey);
+                    }
+                  }}
+                  className="flex-1 py-3 bg-rose-50 border-2 border-rose-200 text-rose-600 font-black text-[10px] uppercase rounded-xl hover:bg-rose-600 hover:text-white transition-all"
+                >
+                  Delete Proposal (WARNING: CANNOT BE REVERSED)
                 </button>
               </div>
             ) : (

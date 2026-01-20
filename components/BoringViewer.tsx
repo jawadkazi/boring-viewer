@@ -6,7 +6,6 @@ import { useRouter } from "next/navigation";
 // Components
 import Header from "@/components/layout/Header";
 import AuditSidebar from "@/components/sidebar/AuditSidebar";
-import { ROUTES } from "@/data/routes";
 import { Route } from "@/types/route";
 
 const MapViewer = dynamic(() => import("@/components/map/MapViewer"), {
@@ -22,9 +21,10 @@ const MapViewer = dynamic(() => import("@/components/map/MapViewer"), {
 
 interface BoringViewerProps {
   slug?: string;
+  routes: Route[];
 }
 
-export default function BoringViewer({ slug }: BoringViewerProps) {
+export default function BoringViewer({ slug, routes }: BoringViewerProps) {
   const router = useRouter();
   const [resetTrigger, setResetTrigger] = useState(0);
 
@@ -33,20 +33,20 @@ export default function BoringViewer({ slug }: BoringViewerProps) {
     if (!slug) return { activeRoute: null, isEditable: false };
 
     // 1. Check for Manage Key (Private / Editable)
-    const privateRoute = ROUTES.find((r) => r.manageKey === slug);
+    const privateRoute = routes.find((r) => r.manageKey === slug);
     if (privateRoute) {
       return { activeRoute: privateRoute, isEditable: true };
     }
 
     // 2. Check for Public ID (View Only)
-    const publicRoute = ROUTES.find((r) => r.id === slug);
+    const publicRoute = routes.find((r) => r.id === slug);
     if (publicRoute) {
       return { activeRoute: publicRoute, isEditable: false };
     }
 
     // 3. Not found - treat as no selection
     return { activeRoute: null, isEditable: false };
-  }, [slug]);
+  }, [slug, routes]);
 
   const handleRouteSelect = (route: Route | null) => {
     if (route) {
@@ -77,7 +77,7 @@ export default function BoringViewer({ slug }: BoringViewerProps) {
       <div className="flex flex-1 overflow-hidden">
         {/* Sidebar Section */}
         <AuditSidebar
-          routes={ROUTES}
+          routes={routes}
           activeRoute={activeRoute}
           setActiveRoute={handleRouteSelect}
           setResetTrigger={setResetTrigger}
@@ -87,7 +87,7 @@ export default function BoringViewer({ slug }: BoringViewerProps) {
         {/* Map Section */}
         <section className="flex-1 relative bg-slate-100">
           <MapViewer
-            routes={ROUTES}
+            routes={routes}
             activeRoute={activeRoute}
             resetTrigger={resetTrigger}
             onRouteClick={handleRouteSelect}

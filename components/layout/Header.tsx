@@ -1,5 +1,6 @@
 "use client";
 import React from "react";
+import Link from "next/link";
 
 export default function Header() {
   return (
@@ -53,9 +54,12 @@ export default function Header() {
         </nav>
 
         {/* UPLOAD BUTTON */}
-        <button className="bg-slate-900 text-white px-5 py-2.5 rounded-xl text-[10px] font-black uppercase tracking-widest hover:bg-rose-600 transition-all active:scale-95 shadow-lg border border-white/10">
+        <Link
+          href="/create"
+          className="bg-slate-900 text-white px-5 py-2.5 rounded-xl text-[10px] font-black uppercase tracking-widest hover:bg-rose-600 transition-all active:scale-95 shadow-lg border border-white/10"
+        >
           Upload Proposal
-        </button>
+        </Link>
       </div>
     </header>
   );
