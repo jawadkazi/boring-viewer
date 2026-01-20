@@ -4,11 +4,11 @@ import { neon } from "@neondatabase/serverless";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 
-const sql = neon(process.env.DATABASE_URL!);
+const databaseConnection = neon(process.env.DATABASE_URL!);
 
 export async function deleteRoute(id: string, manageKey: string) {
   try {
-    await sql`
+    await databaseConnection`
       DELETE FROM proposals
       WHERE id = ${id} AND manage_key = ${manageKey}
     `;
@@ -40,7 +40,7 @@ export async function createRoute(formData: FormData) {
   const color = (formData.get("color") as string) || "#e11d48";
 
   try {
-    const result = await sql`
+    const result = await databaseConnection`
       INSERT INTO proposals (
         name,
         proposer,
@@ -72,7 +72,10 @@ export async function createRoute(formData: FormData) {
     `;
 
     revalidatePath("/");
-    return { success: true, data: result[0] };
+    return {
+      success: true,
+      data: result[0] as { id: string; manage_key: string },
+    };
   } catch (error) {
     console.error("Create Route Error:", error);
     return { success: false, error: "Failed to create proposal." };
